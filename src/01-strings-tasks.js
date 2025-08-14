@@ -238,8 +238,21 @@ function getRectangleString(width, height) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split(
+    ''
+  );
+  const rot13Alphabet =
+    'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.split('');
+
+  return str
+    .split('')
+    .map((letter) => {
+      return rot13Alphabet[alphabet.indexOf(letter)]
+        ? rot13Alphabet[alphabet.indexOf(letter)]
+        : letter;
+    })
+    .join('');
 }
 
 /**
