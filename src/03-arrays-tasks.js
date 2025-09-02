@@ -596,6 +596,10 @@ function swapHeadAndTail(arr) {
   const head = arr.slice(0, mid);
   const tail = arr.slice(-mid);
 
+  if (arr.length === 1) {
+    return arr;
+  }
+
   if (len % 2 === 0) {
     return [...tail, ...head];
   }
