@@ -229,8 +229,13 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  const smallerNum = Math.min(a, b);
+  const biggerNum = Math.max(a, b);
+  const startBracket = isStartIncluded ? '[' : '(';
+  const closeBracket = isEndIncluded ? ']' : ')';
+
+  return `${startBracket}${smallerNum}, ${biggerNum}${closeBracket}`;
 }
 
 /**
